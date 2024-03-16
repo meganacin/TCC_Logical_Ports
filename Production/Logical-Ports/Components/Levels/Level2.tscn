@@ -1,0 +1,365 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Components/StartPointA.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Components/Pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Components/Transition_Out.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/EndPoint.png" type="Texture" id=4]
+[ext_resource path="res://endPoint.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/Classic-Font.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/FixedFont.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://Components/Levels/LevelResult.gd" type="Script" id=8]
+[ext_resource path="res://Components/ConcludeLevel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Components/PortNot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Components/Levels/Tutor.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/StartPoint.png" type="Texture" id=12]
+[ext_resource path="res://icon.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/plugExemple.png" type="Texture" id=14]
+[ext_resource path="res://Components/Levels/FakePort.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/Not.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 7 )
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Pause" parent="." instance=ExtResource( 2 )]
+
+[node name="SolutionContainer" type="ColorRect" parent="."]
+margin_left = 640.0
+margin_right = 1280.0
+margin_bottom = 128.0
+color = Color( 1, 1, 1, 0.239216 )
+
+[node name="Level" type="Label" parent="SolutionContainer"]
+margin_left = 8.0
+margin_top = -8.0
+margin_right = 104.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+text = "Nível:"
+valign = 1
+
+[node name="AtualLevel" type="Label" parent="SolutionContainer"]
+margin_left = 104.0
+margin_top = -8.0
+margin_right = 184.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+valign = 1
+
+[node name="SolutionText" type="Label" parent="SolutionContainer"]
+margin_left = 192.0
+margin_top = -8.0
+margin_right = 496.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+text = "Encontre a solução:"
+valign = 1
+
+[node name="S" type="Label" parent="SolutionContainer"]
+margin_left = 48.0
+margin_top = 32.0
+margin_right = 104.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 5 )
+text = "S:"
+align = 1
+valign = 1
+
+[node name="SExpected" type="Label" parent="SolutionContainer/S"]
+margin_left = 43.0
+margin_right = 331.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 4 )
+text = "A'"
+valign = 1
+
+[node name="ErrorMessage" type="Label" parent="SolutionContainer"]
+visible = false
+margin_left = 336.0
+margin_top = 280.0
+margin_right = 640.0
+margin_bottom = 353.0
+custom_colors/font_color = Color( 0.964706, 0, 0, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "Parece que algo não esta certo, verifique com atenção."
+align = 1
+autowrap = true
+
+[node name="endPoint" type="StaticBody2D" parent="." groups=["Port"]]
+position = Vector2( 992, 416 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="endPoint"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endPoint"]
+shape = SubResource( 1 )
+
+[node name="S" type="Label" parent="endPoint"]
+margin_left = 24.0
+margin_top = -32.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "S:"
+align = 1
+valign = 1
+
+[node name="ResultLabel" type="Label" parent="endPoint"]
+margin_left = 64.0
+margin_top = -32.0
+margin_right = 288.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 3 )
+valign = 1
+
+[node name="StartPoint" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 416 )
+
+[node name="Transition_Out" parent="." instance=ExtResource( 3 )]
+
+[node name="ConcludeLevel" parent="." instance=ExtResource( 9 )]
+
+[node name="PortNot" parent="." instance=ExtResource( 10 )]
+position = Vector2( 632, 416 )
+
+[node name="Tutor" type="Area2D" parent="."]
+z_index = 3
+script = ExtResource( 11 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutor"]
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 1280.0
+margin_bottom = 752.0
+color = Color( 0.0705882, 0.0901961, 0.847059, 1 )
+
+[node name="Sprite" type="Sprite" parent="Tutor/ColorRect"]
+position = Vector2( 512, 399 )
+scale = Vector2( 1.25, 1.33333 )
+texture = ExtResource( 16 )
+
+[node name="Entrada" type="Label" parent="Tutor/ColorRect/Sprite"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -186.0
+margin_top = -6.0
+margin_right = -96.0
+margin_bottom = -36.0
+custom_fonts/font = SubResource( 7 )
+text = "Entrada >"
+align = 1
+autowrap = true
+
+[node name="Saida" type="Label" parent="Tutor/ColorRect/Sprite"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.4
+margin_top = -6.0
+margin_right = 114.4
+margin_bottom = -36.0
+custom_fonts/font = SubResource( 7 )
+text = "< Saida"
+align = 1
+autowrap = true
+
+[node name="ColorRect" type="ColorRect" parent="Tutor/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -264.0
+margin_right = 324.0
+margin_bottom = -128.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Seja bem-vindo ao nível 2!
+
+A partir de agora, começaremos a explorar as portas lógicas, as quais serão necessárias para concluir todos os desafios daqui para frente."
+align = 1
+autowrap = true
+
+[node name="ColorRect3" type="ColorRect" parent="Tutor/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -112.0
+margin_right = 324.0
+margin_bottom = 56.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect/ColorRect3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Exatamente, a porta NOT, também conhecida como inversora, é a mais simples de todas. Ela é composta por uma entrada e uma saída. Sua função é receber um valor na entrada e devolver o valor invertido na saída, sendo representado por um sinal de aspas simples ('), colocado à direita do valor."
+align = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="Tutor/ColorRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -216.0
+margin_top = -72.0
+margin_right = -44.0
+margin_bottom = -24.0
+custom_fonts/font = SubResource( 8 )
+text = "Prosseguir"
+
+[node name="ColorRect2" type="ColorRect" parent="Tutor"]
+visible = false
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 1280.0
+margin_bottom = 752.0
+color = Color( 0.0705882, 0.0901961, 0.847059, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutor/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -244.0
+margin_right = 324.0
+margin_bottom = -128.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect2/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Para utilizar a porta NOT (Não), basta conectar o sinal de entrada à porta NOT. Dessa forma, a porta terá um valor resultante, que pode ser passado para outros elementos, visando solucionar o desafio."
+align = 1
+autowrap = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tutor/ColorRect2"]
+position = Vector2( 301, 273 )
+script = ExtResource( 15 )
+
+[node name="Line2D" type="Line2D" parent="Tutor/ColorRect2/StaticBody2D"]
+
+[node name="Line2D2" type="Line2D" parent="Tutor/ColorRect2/StaticBody2D"]
+position = Vector2( 0, -5 )
+points = PoolVector2Array( 427, 7, 451, 7 )
+
+[node name="EndP" type="Sprite" parent="Tutor/ColorRect2/StaticBody2D"]
+position = Vector2( 406, 2 )
+texture = ExtResource( 16 )
+
+[node name="Sprite" type="Sprite" parent="Tutor/ColorRect2/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect2/StaticBody2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 15.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 9 )
+text = "A"
+
+[node name="Plug" type="Sprite" parent="Tutor/ColorRect2/StaticBody2D"]
+position = Vector2( 64, -7.62939e-06 )
+scale = Vector2( 1.34375, 1.25 )
+texture = ExtResource( 14 )
+
+[node name="Plug2" type="Sprite" parent="Tutor/ColorRect2/StaticBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 459, 2 )
+scale = Vector2( 0.250001, 0.25 )
+texture = ExtResource( 13 )
+
+[node name="Res" type="Label" parent="Tutor/ColorRect2/StaticBody2D"]
+visible = false
+margin_left = 475.0
+margin_top = -68.0
+margin_right = 507.0
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 11 )
+text = "A'"
+valign = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Tutor/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = 114.0
+margin_right = 324.0
+margin_bottom = 208.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect2/ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Quando todos os valores de entrada de uma porta lógica são utilizados, o movimento da linha da mesma é habilitado e seu sinal pode ser transmitido adiante."
+align = 1
+autowrap = true
+
+[node name="Button2" type="Button" parent="Tutor/ColorRect2"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -216.0
+margin_top = -72.0
+margin_right = -44.0
+margin_bottom = -24.0
+custom_fonts/font = SubResource( 8 )
+text = "Prosseguir"
+
+[connection signal="pressed" from="Tutor/ColorRect/Button" to="Tutor" method="_on_Button_pressed"]
+[connection signal="pressed" from="Tutor/ColorRect2/Button2" to="Tutor" method="_on_Button2_pressed"]
