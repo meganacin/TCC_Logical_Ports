@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Components/ComponentsScripts/ConcludeLevel.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Classic-Font.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[node name="ConcludeLevel" type="CanvasLayer"]
+visible = false
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -393.0
+margin_top = -265.0
+margin_right = -9.0
+margin_bottom = -9.0
+color = Color( 0.529412, 0.529412, 0.529412, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -624, 228 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect/CenterContainer"]
+margin_left = 42.0
+margin_top = 64.0
+margin_right = 342.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( -522, -132 )
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/ColorRect/CenterContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Nível Concluido"
+align = 1
+
+[node name="Control" type="Control" parent="Control/ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 300.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="Button" type="Button" parent="Control/ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 300.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( -634, -73 )
+custom_fonts/font = SubResource( 5 )
+text = "Seleção de fases"
+
+[node name="Button2" type="Button" parent="Control/ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 300.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( -634, -73 )
+custom_fonts/font = SubResource( 5 )
+text = "Menu Inicial"
+
+[node name="Button3" type="Button" parent="Control/ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 106.0
+margin_right = 300.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( -634, -73 )
+custom_fonts/font = SubResource( 5 )
+text = "Proximo Nivel"
+
+[connection signal="pressed" from="Control/ColorRect/CenterContainer/VBoxContainer/Button" to="Control" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/ColorRect/CenterContainer/VBoxContainer/Button2" to="Control" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Control/ColorRect/CenterContainer/VBoxContainer/Button3" to="Control" method="_on_Button3_pressed"]

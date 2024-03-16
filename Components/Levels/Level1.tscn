@@ -1,0 +1,383 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Components/StartPointA.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Components/Pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Components/Transition_Out.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/EndPoint.png" type="Texture" id=4]
+[ext_resource path="res://endPoint.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/Classic-Font.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/FixedFont.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://Components/Levels/LevelResult.gd" type="Script" id=8]
+[ext_resource path="res://Components/ConcludeLevel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/expectedValue.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/EntraceValues.jpg" type="Texture" id=11]
+[ext_resource path="res://Components/Levels/Tutor.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/StartPoint.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/plugExemple.png" type="Texture" id=14]
+[ext_resource path="res://Components/Levels/FakePort.gd" type="Script" id=15]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 7 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Pause" parent="." instance=ExtResource( 2 )]
+
+[node name="SolutionContainer" type="ColorRect" parent="."]
+margin_left = 640.0
+margin_right = 1280.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( -1128, 16 )
+color = Color( 1, 1, 1, 0.239216 )
+
+[node name="Level" type="Label" parent="SolutionContainer"]
+margin_left = 8.0
+margin_top = -8.0
+margin_right = 104.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+text = "Nível:"
+valign = 1
+
+[node name="AtualLevel" type="Label" parent="SolutionContainer"]
+margin_left = 104.0
+margin_top = -8.0
+margin_right = 184.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+valign = 1
+
+[node name="SolutionText" type="Label" parent="SolutionContainer"]
+margin_left = 192.0
+margin_top = -8.0
+margin_right = 496.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+text = "Encontre a solução:"
+valign = 1
+
+[node name="S" type="Label" parent="SolutionContainer"]
+margin_left = 48.0
+margin_top = 32.0
+margin_right = 104.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 5 )
+text = "S:"
+align = 1
+valign = 1
+
+[node name="SExpected" type="Label" parent="SolutionContainer/S"]
+margin_left = 43.0
+margin_right = 331.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 4 )
+text = "A"
+valign = 1
+
+[node name="ErrorMessage" type="Label" parent="SolutionContainer"]
+visible = false
+margin_left = 336.0
+margin_top = 280.0
+margin_right = 640.0
+margin_bottom = 353.0
+custom_colors/font_color = Color( 0.964706, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Parece que algo não esta certo, verifique com atenção."
+align = 1
+autowrap = true
+
+[node name="endPoint" type="StaticBody2D" parent="." groups=["Port"]]
+position = Vector2( 992, 416 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="endPoint"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endPoint"]
+shape = SubResource( 1 )
+
+[node name="S" type="Label" parent="endPoint"]
+margin_left = 24.0
+margin_top = -32.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "S:"
+align = 1
+valign = 1
+
+[node name="ResultLabel" type="Label" parent="endPoint"]
+margin_left = 64.0
+margin_top = -32.0
+margin_right = 288.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 3 )
+valign = 1
+
+[node name="StartPoint" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 416 )
+
+[node name="Transition_Out" parent="." instance=ExtResource( 3 )]
+
+[node name="ConcludeLevel" parent="." instance=ExtResource( 9 )]
+
+[node name="Tutor" type="Area2D" parent="."]
+z_index = 3
+script = ExtResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutor"]
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 1280.0
+margin_bottom = 752.0
+color = Color( 0.0705882, 0.0901961, 0.847059, 1 )
+
+[node name="Sprite" type="Sprite" parent="Tutor/ColorRect"]
+position = Vector2( 520, 224 )
+texture = ExtResource( 10 )
+
+[node name="Sprite2" type="Sprite" parent="Tutor/ColorRect"]
+position = Vector2( 528, 368 )
+scale = Vector2( 0.633562, 0.572981 )
+texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="Tutor/ColorRect"]
+position = Vector2( 528, 504 )
+scale = Vector2( 0.633562, 0.572981 )
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutor/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -264.0
+margin_right = 324.0
+margin_bottom = -160.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Seja bem-vindo ao nível 1, vamos começar pelo básico.
+
+Cada nível possui três elementos principais, sendo eles:"
+align = 1
+autowrap = true
+
+[node name="ColorRect2" type="ColorRect" parent="Tutor/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -144.0
+margin_right = 320.0
+margin_bottom = -88.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect/ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "1: A solução esperada, presente no centro superior da tela abaixo do texto \"Nível\", ou seja, no nível 1 é: \"S:A\";"
+align = 1
+autowrap = true
+
+[node name="ColorRect3" type="ColorRect" parent="Tutor/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -23.0
+margin_right = 324.0
+margin_bottom = 33.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect/ColorRect3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "2: Os valores de entrada, representados por um quadrado azul com uma letra no centro na cor branca;"
+align = 1
+autowrap = true
+
+[node name="ColorRect4" type="ColorRect" parent="Tutor/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = 144.0
+margin_right = 324.0
+margin_bottom = 200.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect/ColorRect4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "3: O valor de saída, representado por um quadrado azul à direita da tela com bordas vermelhas."
+align = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="Tutor/ColorRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -216.0
+margin_top = -72.0
+margin_right = -44.0
+margin_bottom = -24.0
+custom_fonts/font = SubResource( 8 )
+text = "Prosseguir"
+
+[node name="ColorRect2" type="ColorRect" parent="Tutor"]
+visible = false
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 1280.0
+margin_bottom = 752.0
+color = Color( 0.0705882, 0.0901961, 0.847059, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutor/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = -244.0
+margin_right = 324.0
+margin_bottom = -108.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect2/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Para que o valor de um elemento seja enviado para outro, basta arrastar o quadrado preto à frente do elemento, utilizando o cursor do mouse e segurando o botão esquerdo do mouse, arrastar o objeto que liga as linhas até o local de encaixe desejado."
+align = 1
+autowrap = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tutor/ColorRect2"]
+position = Vector2( 288, 308 )
+script = ExtResource( 15 )
+
+[node name="Line2D" type="Line2D" parent="Tutor/ColorRect2/StaticBody2D"]
+
+[node name="EndP" type="Sprite" parent="Tutor/ColorRect2/StaticBody2D"]
+position = Vector2( 384, 0 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Tutor/ColorRect2/StaticBody2D"]
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect2/StaticBody2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 15.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 9 )
+text = "A"
+
+[node name="Plug" type="Sprite" parent="Tutor/ColorRect2/StaticBody2D"]
+position = Vector2( 64, -7.62939e-06 )
+scale = Vector2( 1.34375, 1.25 )
+texture = ExtResource( 14 )
+
+[node name="S" type="Label" parent="Tutor/ColorRect2/StaticBody2D"]
+margin_left = 408.0
+margin_top = -32.0
+margin_right = 448.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "S:"
+align = 1
+valign = 1
+
+[node name="Res" type="Label" parent="Tutor/ColorRect2/StaticBody2D"]
+visible = false
+margin_left = 448.0
+margin_top = -32.0
+margin_right = 472.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 3 )
+text = "A"
+valign = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Tutor/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.0
+margin_top = 114.0
+margin_right = 324.0
+margin_bottom = 160.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="Tutor/ColorRect2/ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Quando o valor de saida for igual ao valor esperado, o nivel é concluido."
+align = 1
+autowrap = true
+
+[node name="Button2" type="Button" parent="Tutor/ColorRect2"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -216.0
+margin_top = -72.0
+margin_right = -44.0
+margin_bottom = -24.0
+custom_fonts/font = SubResource( 8 )
+text = "Prosseguir"
+
+[connection signal="input_event" from="endPoint" to="endPoint" method="_on_endPoint_input_event"]
+[connection signal="pressed" from="Tutor/ColorRect/Button" to="Tutor" method="_on_Button_pressed"]
+[connection signal="pressed" from="Tutor/ColorRect2/Button2" to="Tutor" method="_on_Button2_pressed"]

@@ -1,0 +1,226 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Sprites/And.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/FixedFont.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Components/Transition_Out.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/Classic-Font.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Components/ComponentsScripts/AboutPort.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/StartPoint.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/EndPoint.png" type="Texture" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="AboutPortNot" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Transition_Out" parent="." instance=ExtResource( 3 )]
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -17.0
+margin_bottom = -17.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 112.0
+margin_bottom = 46.0
+custom_constants/separation = 20
+
+[node name="Voltar" type="Button" parent="HBoxContainer"]
+margin_right = 132.0
+margin_bottom = 26.0
+custom_colors/font_color_hover = Color( 0, 0.0627451, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 1, 0.937255, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Voltar"
+
+[node name="SpriteContainer" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -32.0
+margin_top = 192.0
+margin_right = 32.0
+margin_bottom = 256.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="Line1" type="Line2D" parent="SpriteContainer"]
+points = PoolVector2Array( -112, 32, 0, 48 )
+
+[node name="Line3" type="Line2D" parent="SpriteContainer"]
+position = Vector2( 3, 32 )
+points = PoolVector2Array( -115, 64, 0, 48 )
+
+[node name="endPoint" type="Sprite" parent="SpriteContainer"]
+position = Vector2( 176, 64 )
+texture = ExtResource( 7 )
+
+[node name="plugEnd" type="Sprite" parent="SpriteContainer/endPoint"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 5.24521e-06, -1.66893e-06 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1
+texture = ExtResource( 8 )
+
+[node name="Label2" type="Label" parent="SpriteContainer/endPoint"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -44.0
+margin_top = -110.0
+margin_right = 86.0
+margin_bottom = -75.0
+custom_fonts/font = SubResource( 5 )
+text = "Saida ou Solução"
+align = 1
+autowrap = true
+
+[node name="Label3" type="Label" parent="SpriteContainer/endPoint"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -24.0
+margin_right = 112.0
+custom_fonts/font = SubResource( 5 )
+text = "S:(A*B)"
+autowrap = true
+
+[node name="Line2" type="Line2D" parent="SpriteContainer"]
+position = Vector2( 169, 32 )
+points = PoolVector2Array( -112, 32, 0, 32 )
+
+[node name="Title" type="Label" parent="SpriteContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -108.0
+margin_top = -126.0
+margin_right = 108.0
+margin_bottom = -102.0
+custom_fonts/font = SubResource( 1 )
+text = "Porta AND"
+align = 1
+valign = 1
+
+[node name="StartPoint" type="Sprite" parent="SpriteContainer"]
+position = Vector2( -130, 35 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="SpriteContainer/StartPoint"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+custom_fonts/font = SubResource( 4 )
+text = "A"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="SpriteContainer/StartPoint"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -97.0
+margin_top = -99.0
+margin_right = 33.0
+margin_bottom = -45.0
+custom_fonts/font = SubResource( 5 )
+text = "Valores de entrada"
+autowrap = true
+
+[node name="StartPoint2" type="Sprite" parent="SpriteContainer"]
+position = Vector2( -130, 99 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="SpriteContainer/StartPoint2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+custom_fonts/font = SubResource( 4 )
+text = "B"
+align = 1
+valign = 1
+
+[node name="porta" type="Sprite" parent="SpriteContainer"]
+position = Vector2( -88, 184 )
+texture = ExtResource( 1 )
+offset = Vector2( 120, -120 )
+
+[node name="Label2" type="Label" parent="SpriteContainer/porta"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 23.0
+margin_top = -230.0
+margin_right = 153.0
+margin_bottom = -195.0
+custom_fonts/font = SubResource( 5 )
+text = "Porta Logica"
+align = 1
+autowrap = true
+
+[node name="plug1" type="Sprite" parent="SpriteContainer"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, 47 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1
+texture = ExtResource( 8 )
+
+[node name="plug2" type="Sprite" parent="SpriteContainer"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, 79 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1
+texture = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -384.0
+margin_top = -44.0
+margin_right = 384.0
+margin_bottom = 276.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = " A porta AND (ou E) possui duas entradas e uma única saída. 
+
+A função da porta AND é produzir uma saída true (verdadeira) somente quando todas as entradas forem true. Caso contrário, a saída será false (falsa). Ou seja se as entradas forem A e B, a saída será A*B.
+ "
+align = 1
+autowrap = true
+
+[connection signal="pressed" from="HBoxContainer/Voltar" to="." method="_on_Voltar_pressed"]

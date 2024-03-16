@@ -1,0 +1,867 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Fonts/Classic-Font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://LevelSelector.gd" type="Script" id=2]
+[ext_resource path="res://Components/Transition_Out.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/FixedFont.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="LevelSelector" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = -8.0
+script = ExtResource( 2 )
+
+[node name="Transition_Out" parent="." instance=ExtResource( 3 )]
+
+[node name="Selector1" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = 8.0
+rect_pivot_offset = Vector2( 400, 192 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="Next" type="Button" parent="Selector1"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = 174.0
+margin_right = -58.0
+margin_bottom = 196.0
+custom_fonts/font = SubResource( 3 )
+text = "Proximo"
+
+[node name="Lv1" type="Button" parent="Selector1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -408.0
+margin_top = -36.0
+margin_right = -358.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -167, 37 )
+custom_fonts/font = SubResource( 4 )
+text = "1"
+
+[node name="Label" type="Label" parent="Selector1/Lv1"]
+margin_left = -3.0
+margin_top = 37.0
+margin_right = 77.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 2 )
+text = "S:A"
+valign = 1
+
+[node name="Lv2" type="Button" parent="Selector1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -216.0
+margin_top = -36.0
+margin_right = -166.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -371, 53 )
+custom_fonts/font = SubResource( 5 )
+text = "2"
+
+[node name="Label" type="Label" parent="Selector1/Lv2"]
+margin_left = -3.0
+margin_top = 37.0
+margin_right = 77.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 2 )
+text = "S:A'"
+valign = 1
+
+[node name="Lv3" type="Button" parent="Selector1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -36.0
+margin_right = 26.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -260, 37 )
+custom_fonts/font = SubResource( 6 )
+text = "3"
+
+[node name="Label" type="Label" parent="Selector1/Lv3"]
+margin_left = -23.0
+margin_top = 37.0
+margin_right = 89.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 2 )
+text = "S:(A+B)"
+valign = 1
+
+[node name="Lv4" type="Button" parent="Selector1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 168.0
+margin_top = -36.0
+margin_right = 218.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -283, 50 )
+custom_fonts/font = SubResource( 7 )
+text = "4"
+
+[node name="Label" type="Label" parent="Selector1/Lv4"]
+margin_left = -24.0
+margin_top = 37.0
+margin_right = 88.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 2 )
+text = "S:(A*B)"
+valign = 1
+
+[node name="Lv5" type="Button" parent="Selector1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 360.0
+margin_top = -36.0
+margin_right = 410.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 8 )
+text = "5"
+
+[node name="Label" type="Label" parent="Selector1/Lv5"]
+margin_left = -23.0
+margin_top = 37.0
+margin_right = 89.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 2 )
+text = "S:(A⊕B)"
+valign = 1
+
+[node name="Label" type="Label" parent="Selector1"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -216.0
+margin_top = 78.0
+margin_right = 216.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 9 )
+text = "Aprendendo a Jogar"
+
+[node name="Selector2" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = 8.0
+rect_pivot_offset = Vector2( 400, 432 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="Next1" type="Button" parent="Selector2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = 255.0
+margin_right = -65.0
+margin_bottom = 277.0
+custom_fonts/font = SubResource( 3 )
+text = "Proximo"
+
+[node name="Back1" type="Button" parent="Selector2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 65.0
+margin_top = 254.0
+margin_right = 205.0
+margin_bottom = 276.0
+custom_fonts/font = SubResource( 3 )
+text = "Anterior"
+
+[node name="Lv6" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -528.0
+margin_top = -260.0
+margin_right = -478.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -167, 37 )
+custom_fonts/font = SubResource( 4 )
+text = "6"
+
+[node name="Label" type="Label" parent="Selector2/Lv6"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -56.0
+margin_top = 5.0
+margin_right = 56.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 2 )
+text = "(A'+B)'"
+valign = 1
+
+[node name="Lv7" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -272.0
+margin_top = -260.0
+margin_right = -222.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -371, 53 )
+custom_fonts/font = SubResource( 5 )
+text = "7"
+
+[node name="Label" type="Label" parent="Selector2/Lv7"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = 5.0
+margin_right = 80.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 2 )
+text = "((A*C)+B')"
+valign = 1
+
+[node name="Lv8" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -260.0
+margin_right = 34.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -260, 37 )
+custom_fonts/font = SubResource( 6 )
+text = "8"
+
+[node name="Label" type="Label" parent="Selector2/Lv8"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -83.0
+margin_top = 10.0
+margin_right = 93.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 2 )
+text = "((A⊕B)⊕C)"
+valign = 1
+
+[node name="Lv9" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = -260.0
+margin_right = 290.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -283, 50 )
+custom_fonts/font = SubResource( 7 )
+text = "9"
+
+[node name="Label" type="Label" parent="Selector2/Lv9"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -88.0
+margin_top = 8.0
+margin_right = 88.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+text = "((A⊕B)'*C')"
+valign = 1
+
+[node name="Lv10" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 496.0
+margin_top = -260.0
+margin_right = 546.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 8 )
+text = "10"
+
+[node name="Label" type="Label" parent="Selector2/Lv10"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = 7.0
+margin_right = 120.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 2 )
+text = "((A+B)'⊕(C*D)')"
+valign = 1
+
+[node name="Lv11" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -68.0
+margin_right = -350.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -167, 37 )
+custom_fonts/font = SubResource( 4 )
+text = "11"
+
+[node name="Label" type="Label" parent="Selector2/Lv11"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = 4.0
+margin_right = 128.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A*B)'+C')⊕D)'"
+valign = 1
+
+[node name="Lv12" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -68.0
+margin_right = 34.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -371, 53 )
+custom_fonts/font = SubResource( 5 )
+text = "12"
+
+[node name="Label" type="Label" parent="Selector2/Lv12"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -153.0
+margin_top = 6.0
+margin_right = 151.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A+B)'*C)⊕(A+C)')"
+valign = 1
+
+[node name="Lv13" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 368.0
+margin_top = -68.0
+margin_right = 418.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -260, 37 )
+custom_fonts/font = SubResource( 6 )
+text = "13"
+
+[node name="Label" type="Label" parent="Selector2/Lv13"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -177.0
+margin_top = 6.0
+margin_right = 175.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A⊕B)+C)⊕((A+B)*D'))"
+valign = 1
+
+[node name="Lv14" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -272.0
+margin_top = 124.0
+margin_right = -222.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -283, 50 )
+custom_fonts/font = SubResource( 7 )
+text = "14"
+
+[node name="Label" type="Label" parent="Selector2/Lv14"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = -1.0
+margin_right = 192.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A'+B)+C')*((A+B)⊕D'))"
+valign = 1
+
+[node name="Lv15" type="Button" parent="Selector2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 240.0
+margin_top = 124.0
+margin_right = 290.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 8 )
+text = "15"
+
+[node name="Label" type="Label" parent="Selector2/Lv15"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -2.0
+margin_right = 200.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A+B')+D')⊕((A*B)*C'))'"
+valign = 1
+
+[node name="Selector3" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = 8.0
+rect_pivot_offset = Vector2( 400, 432 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="Next2" type="Button" parent="Selector3"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = 252.0
+margin_right = -132.0
+margin_bottom = 274.0
+custom_fonts/font = SubResource( 3 )
+text = "Proximo"
+
+[node name="Back2" type="Button" parent="Selector3"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 65.0
+margin_top = 254.0
+margin_right = 205.0
+margin_bottom = 276.0
+custom_fonts/font = SubResource( 3 )
+text = "Anterior"
+
+[node name="Lv16" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -536.0
+margin_top = -260.0
+margin_right = -486.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -167, 37 )
+custom_fonts/font = SubResource( 4 )
+text = "16"
+
+[node name="Label" type="Label" parent="Selector3/Lv16"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -113.0
+margin_top = 6.0
+margin_right = 111.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A'*B)+C)⊕D)"
+valign = 1
+
+[node name="Lv17" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -184.0
+margin_top = -260.0
+margin_right = -134.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -371, 53 )
+custom_fonts/font = SubResource( 5 )
+text = "17"
+
+[node name="Label" type="Label" parent="Selector3/Lv17"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -145.0
+margin_top = 6.0
+margin_right = 143.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A'*B')+C')⊕D')'"
+valign = 1
+
+[node name="Lv18" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 136.0
+margin_top = -260.0
+margin_right = 186.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -260, 37 )
+custom_fonts/font = SubResource( 6 )
+text = "18"
+
+[node name="Label" type="Label" parent="Selector3/Lv18"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -129.0
+margin_top = 6.0
+margin_right = 127.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((B'⊕D)+C')*A')"
+valign = 1
+
+[node name="Lv19" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 488.0
+margin_top = -260.0
+margin_right = 538.0
+margin_bottom = -210.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -283, 50 )
+custom_fonts/font = SubResource( 7 )
+text = "19"
+
+[node name="Label" type="Label" parent="Selector3/Lv19"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -177.0
+margin_top = 6.0
+margin_right = 175.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((B+D)⊕(C+A))*(C⊕A))'"
+valign = 1
+
+[node name="Lv20" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -472.0
+margin_top = -108.0
+margin_right = -422.0
+margin_bottom = -58.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 8 )
+text = "20"
+
+[node name="Label" type="Label" parent="Selector3/Lv20"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -201.0
+margin_top = 6.0
+margin_right = 199.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((B*D')*(C⊕A'))+(C⊕A'))'"
+valign = 1
+
+[node name="Lv21" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -68.0
+margin_right = 26.0
+margin_bottom = -18.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -167, 37 )
+custom_fonts/font = SubResource( 4 )
+text = "21"
+
+[node name="Label" type="Label" parent="Selector3/Lv21"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -249.0
+margin_top = 6.0
+margin_right = 231.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "((B'*D')'⊕(((C⊕A)*B)+(A+D')))'"
+valign = 1
+
+[node name="Lv22" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 424.0
+margin_top = -108.0
+margin_right = 474.0
+margin_bottom = -58.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -371, 53 )
+custom_fonts/font = SubResource( 5 )
+text = "22"
+
+[node name="Label" type="Label" parent="Selector3/Lv22"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -257.0
+margin_top = 6.0
+margin_right = 287.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A*A')+(B*B'))+((C*C')+(D*D')))'"
+valign = 1
+
+[node name="Lv23" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -408.0
+margin_top = 60.0
+margin_right = -358.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -260, 37 )
+custom_fonts/font = SubResource( 6 )
+text = "23"
+
+[node name="Label" type="Label" parent="Selector3/Lv23"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -265.0
+margin_top = 6.0
+margin_right = 263.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A'*B)+(B'*A))⊕((C'⊕C)+(D*D))')"
+valign = 1
+
+[node name="Lv24" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = 108.0
+margin_right = 26.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 50, 50 )
+rect_pivot_offset = Vector2( -283, 50 )
+custom_fonts/font = SubResource( 7 )
+text = "24"
+
+[node name="Label" type="Label" parent="Selector3/Lv24"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -105.0
+margin_top = -2.0
+margin_right = 103.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "((A⊕C)+(B*D))"
+valign = 1
+
+[node name="Lv25" type="Button" parent="Selector3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 432.0
+margin_top = 60.0
+margin_right = 482.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 8 )
+text = "25"
+
+[node name="Label" type="Label" parent="Selector3/Lv25"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -257.0
+margin_top = -2.0
+margin_right = 255.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "(((A+B)'*C)+((B*C)'*(A'+(B*D))))"
+valign = 1
+
+[node name="Selector4" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = 8.0
+rect_pivot_offset = Vector2( 400, 432 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="Back3" type="Button" parent="Selector4"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 65.0
+margin_top = 254.0
+margin_right = 205.0
+margin_bottom = 276.0
+custom_fonts/font = SubResource( 3 )
+text = "Anterior"
+
+[node name="LvLivre" type="Button" parent="Selector4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -164.5
+margin_top = -25.0
+margin_right = 164.5
+margin_bottom = 25.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 8 )
+text = "Modo Livre"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 112.0
+margin_bottom = 46.0
+custom_constants/separation = 20
+
+[node name="Menu" type="Button" parent="HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 26.0
+custom_colors/font_color_hover = Color( 0, 0.0627451, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 1, 0.937255, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
+
+[connection signal="pressed" from="Selector1/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Selector1/Lv1" to="." method="_on_Lv1_pressed"]
+[connection signal="pressed" from="Selector1/Lv2" to="." method="_on_Lv2_pressed"]
+[connection signal="pressed" from="Selector1/Lv3" to="." method="_on_Lv3_pressed"]
+[connection signal="pressed" from="Selector1/Lv4" to="." method="_on_Lv4_pressed"]
+[connection signal="pressed" from="Selector1/Lv5" to="." method="_on_Lv5_pressed"]
+[connection signal="pressed" from="Selector2/Next1" to="." method="_on_Next1_pressed"]
+[connection signal="pressed" from="Selector2/Back1" to="." method="_on_Back1_pressed"]
+[connection signal="pressed" from="Selector2/Lv6" to="." method="_on_Lv6_pressed"]
+[connection signal="pressed" from="Selector2/Lv7" to="." method="_on_Lv7_pressed"]
+[connection signal="pressed" from="Selector2/Lv8" to="." method="_on_Lv8_pressed"]
+[connection signal="pressed" from="Selector2/Lv9" to="." method="_on_Lv9_pressed"]
+[connection signal="pressed" from="Selector2/Lv10" to="." method="_on_Lv10_pressed"]
+[connection signal="pressed" from="Selector2/Lv11" to="." method="_on_Lv11_pressed"]
+[connection signal="pressed" from="Selector2/Lv12" to="." method="_on_Lv12_pressed"]
+[connection signal="pressed" from="Selector2/Lv13" to="." method="_on_Lv13_pressed"]
+[connection signal="pressed" from="Selector2/Lv14" to="." method="_on_Lv14_pressed"]
+[connection signal="pressed" from="Selector2/Lv15" to="." method="_on_Lv15_pressed"]
+[connection signal="pressed" from="Selector3/Next2" to="." method="_on_Next2_pressed"]
+[connection signal="pressed" from="Selector3/Back2" to="." method="_on_Back2_pressed"]
+[connection signal="pressed" from="Selector3/Lv16" to="." method="_on_Lv16_pressed"]
+[connection signal="pressed" from="Selector3/Lv17" to="." method="_on_Lv17_pressed"]
+[connection signal="pressed" from="Selector3/Lv18" to="." method="_on_Lv18_pressed"]
+[connection signal="pressed" from="Selector3/Lv19" to="." method="_on_Lv19_pressed"]
+[connection signal="pressed" from="Selector3/Lv20" to="." method="_on_Lv20_pressed"]
+[connection signal="pressed" from="Selector3/Lv21" to="." method="_on_Lv21_pressed"]
+[connection signal="pressed" from="Selector3/Lv22" to="." method="_on_Lv22_pressed"]
+[connection signal="pressed" from="Selector3/Lv23" to="." method="_on_Lv23_pressed"]
+[connection signal="pressed" from="Selector3/Lv24" to="." method="_on_Lv24_pressed"]
+[connection signal="pressed" from="Selector3/Lv25" to="." method="_on_Lv25_pressed"]
+[connection signal="pressed" from="Selector4/Back3" to="." method="_on_Back3_pressed"]
+[connection signal="pressed" from="Selector4/LvLivre" to="." method="_on_LvLivre_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu" to="." method="_on_Menu_pressed"]

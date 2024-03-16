@@ -1,0 +1,363 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Components/Levels/Lixeira.gd" type="Script" id=1]
+[ext_resource path="res://endPoint.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/EndPoint.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/trash_icon2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/trash_icon.png" type="Texture" id=5]
+[ext_resource path="res://Components/StartPointA.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Components/StartPointB.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Components/StartPointC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Components/Transition_Out.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Components/StartPointD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Components/ConcludeLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Components/Pause.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Components/Levels/LevelResult.gd" type="Script" id=13]
+[ext_resource path="res://Fonts/Classic-Font.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Fonts/FixedFont.otf" type="DynamicFontData" id=15]
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 15 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "close",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 624, 32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="Level15" type="Node2D"]
+script = ExtResource( 13 )
+
+[node name="SolutionContainer" type="ColorRect" parent="."]
+margin_left = 640.0
+margin_right = 1280.0
+margin_bottom = 128.0
+color = Color( 1, 1, 1, 0.239216 )
+
+[node name="Level" type="Label" parent="SolutionContainer"]
+margin_left = 8.0
+margin_top = -8.0
+margin_right = 104.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 10 )
+text = "Nível:"
+valign = 1
+
+[node name="AtualLevel" type="Label" parent="SolutionContainer"]
+margin_left = 104.0
+margin_top = -8.0
+margin_right = 184.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 10 )
+valign = 1
+
+[node name="SolutionText" type="Label" parent="SolutionContainer"]
+margin_left = 192.0
+margin_top = -8.0
+margin_right = 496.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 10 )
+text = "Encontre a solução:"
+valign = 1
+
+[node name="S" type="Label" parent="SolutionContainer"]
+margin_left = 48.0
+margin_top = 32.0
+margin_right = 104.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 2 )
+text = "S:"
+align = 1
+valign = 1
+
+[node name="SExpected" type="Label" parent="SolutionContainer/S"]
+margin_left = 43.0
+margin_right = 331.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+text = "(((A+B')+D')⊕((A*B)*C'))'"
+valign = 1
+
+[node name="ErrorMessage" type="Label" parent="SolutionContainer"]
+visible = false
+margin_left = 336.0
+margin_top = 280.0
+margin_right = 640.0
+margin_bottom = 353.0
+custom_colors/font_color = Color( 0.964706, 0, 0, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "Parece que algo não esta certo, verifique com atenção."
+align = 1
+autowrap = true
+
+[node name="SpawnPainel" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 128.0
+color = Color( 1, 1, 1, 0.0980392 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SpawnPainel"]
+anchor_right = 0.076
+margin_right = 591.36
+margin_bottom = 128.0
+rect_min_size = Vector2( 150, 0 )
+custom_constants/separation = 0
+
+[node name="NotControl" type="Control" parent="SpawnPainel/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="SpawnNotBtn" type="Button" parent="SpawnPainel/HBoxContainer/NotControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 16, 16 )
+custom_fonts/font = SubResource( 6 )
+text = "NOT"
+
+[node name="AndControl" type="Control" parent="SpawnPainel/HBoxContainer"]
+margin_left = 128.0
+margin_right = 256.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="SpawnAndBtn" type="Button" parent="SpawnPainel/HBoxContainer/AndControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 16, 16 )
+custom_fonts/font = SubResource( 7 )
+text = "AND"
+
+[node name="OrControl" type="Control" parent="SpawnPainel/HBoxContainer"]
+margin_left = 256.0
+margin_right = 384.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="SpawnOrBtn" type="Button" parent="SpawnPainel/HBoxContainer/OrControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 16, 16 )
+custom_fonts/font = SubResource( 8 )
+text = "OR"
+
+[node name="XorControl" type="Control" parent="SpawnPainel/HBoxContainer"]
+margin_left = 384.0
+margin_right = 512.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="SpawnXorBtn" type="Button" parent="SpawnPainel/HBoxContainer/XorControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 16, 16 )
+custom_fonts/font = SubResource( 9 )
+text = "XOR"
+
+[node name="DeletePortControl" type="Control" parent="SpawnPainel/HBoxContainer"]
+margin_left = 512.0
+margin_right = 640.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="ColorRect" type="ColorRect" parent="SpawnPainel/HBoxContainer/DeletePortControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+color = Color( 0.556863, 0.129412, 0.129412, 1 )
+
+[node name="Lixeira" type="StaticBody2D" parent="SpawnPainel/HBoxContainer/DeletePortControl/ColorRect"]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnPainel/HBoxContainer/DeletePortControl/ColorRect/Lixeira"]
+position = Vector2( 32, 32 )
+frames = SubResource( 5 )
+animation = "close"
+
+[node name="NotCont" type="Label" parent="SpawnPainel/HBoxContainer/DeletePortControl/ColorRect/Lixeira"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.5
+margin_top = -33.0
+margin_right = -415.5
+margin_bottom = 3.0
+custom_fonts/font = SubResource( 2 )
+text = "4"
+align = 1
+valign = 1
+
+[node name="AndCont" type="Label" parent="SpawnPainel/HBoxContainer/DeletePortControl/ColorRect/Lixeira"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -32.0
+margin_right = -287.0
+margin_bottom = 4.0
+custom_fonts/font = SubResource( 2 )
+text = "2"
+align = 1
+valign = 1
+
+[node name="OrCont" type="Label" parent="SpawnPainel/HBoxContainer/DeletePortControl/ColorRect/Lixeira"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -32.0
+margin_right = -159.0
+margin_bottom = 4.0
+custom_fonts/font = SubResource( 2 )
+text = "2"
+align = 1
+valign = 1
+
+[node name="XorCont" type="Label" parent="SpawnPainel/HBoxContainer/DeletePortControl/ColorRect/Lixeira"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -32.0
+margin_right = -31.0
+margin_bottom = 4.0
+custom_fonts/font = SubResource( 2 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPainel/HBoxContainer/DeletePortControl/ColorRect/Lixeira"]
+position = Vector2( 112, 32 )
+shape = SubResource( 11 )
+
+[node name="Pause" parent="." instance=ExtResource( 12 )]
+
+[node name="endPoint" type="StaticBody2D" parent="." groups=["Port"]]
+position = Vector2( 1120, 416 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="endPoint"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endPoint"]
+shape = SubResource( 1 )
+
+[node name="S" type="Label" parent="endPoint"]
+margin_left = 24.0
+margin_top = -32.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+text = "S:"
+align = 1
+valign = 1
+
+[node name="ResultLabel" type="Label" parent="endPoint"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = 32.0
+margin_right = 112.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 3 )
+valign = 1
+
+[node name="StartPoint" parent="." instance=ExtResource( 6 )]
+position = Vector2( 64, 352 )
+
+[node name="StartPoint6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 64, 256 )
+
+[node name="Transition_Out" parent="." instance=ExtResource( 9 )]
+
+[node name="ConcludeLevel" parent="." instance=ExtResource( 11 )]
+
+[node name="StartPoint2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 64, 640 )
+
+[node name="StartPoint3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 64, 544 )
+
+[node name="StartPoint7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 64, 736 )
+
+[node name="StartPoint4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 64, 456 )
+
+[connection signal="pressed" from="SpawnPainel/HBoxContainer/NotControl/SpawnNotBtn" to="." method="_on_SpawnNotBtn_pressed"]
+[connection signal="pressed" from="SpawnPainel/HBoxContainer/AndControl/SpawnAndBtn" to="." method="_on_SpawnAndBtn_pressed"]
+[connection signal="pressed" from="SpawnPainel/HBoxContainer/OrControl/SpawnOrBtn" to="." method="_on_SpawnOrBtn_pressed"]
+[connection signal="pressed" from="SpawnPainel/HBoxContainer/XorControl/SpawnXorBtn" to="." method="_on_SpawnXorBtn_pressed"]
+[connection signal="input_event" from="endPoint" to="endPoint" method="_on_endPoint_input_event"]
